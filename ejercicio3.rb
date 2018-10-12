@@ -1,4 +1,4 @@
-arr = [{name: 'Valentina', age: 23, comuna: 'Ñuñoa', gender: 'Femenino'}, {name: 'Daniel', age: 22, comuna: 'Providencia', gender: 'Masculino'}]
+arr = [{name: 'Valentina', age: 23, comuna: 'Ñuñoa', gender: 'Femenino'}, {name: 'Daniel', age: 22, comuna: 'Providencia', gender: 'Masculino'}, {name: 'Armando', age: 30, comuna: 'Macul', gender: 'masculino'}]
 options = 0
 while options != 10
   puts 'Ingresa una opción del 1 al 9'
@@ -54,8 +54,24 @@ while options != 10
     names_comunas = arr.map { |h| h[:comuna] }
     puts "Las comunas que existen en el sistema son #{names_comunas.map(&:capitalize).uniq}"
   when 6
+    arr_of_age = arr.find_all { |h| h[:age] >= 20 && h[:age] <= 25 }
+    names_of_age = arr_of_age.map { |h| h[:name] }
+    puts "Las personas que tienen entre 20 y 25 años son #{names_of_age}"
   when 7
+    sum_of_ages = 0
+    arr.map { |h| sum_of_ages += h[:age] }
+    p "La suma de las edades de los alumnos es #{sum_of_ages}"
   when 8
+    sum_of_ages = 0
+    arr.map { |h| sum_of_ages += h[:age] }
+    prom_of_ages = (sum_of_ages / arr.count)
+    p "El promedio de las edades es #{prom_of_ages}"
   when 9
+    fem_group = arr.select { |h| h[:gender].capitalize.start_with?('F') }
+    fem_names = fem_group.map { |h| h[:name] }
+    masc_group = arr.select { |h| h[:gender].capitalize.start_with?('M') }
+    masc_names = masc_group.map { |h| h[:name] }
+    puts "Las personas de género femenino son #{fem_names}"
+    puts "Las personas de género masculino son #{masc_names}"
   end
 end
