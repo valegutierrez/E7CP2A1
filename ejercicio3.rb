@@ -1,4 +1,8 @@
-arr = [{name: 'Valentina', age: 23, comuna: 'Ñuñoa', gender: 'Femenino'}, {name: 'Daniel', age: 22, comuna: 'Providencia', gender: 'Masculino'}, {name: 'Armando', age: 30, comuna: 'Macul', gender: 'masculino'}]
+arr = [
+  { name: 'Valentina', age: 23, comuna: 'Ñuñoa', gender: 'Femenino' },
+  { name: 'Daniel', age: 22, comuna: 'Providencia', gender: 'Masculino' },
+  { name: 'Armando', age: 30, comuna: 'Macul', gender: 'masculino' }
+]
 options = 0
 while options != 10
   puts 'Ingresa una opción del 1 al 9'
@@ -52,7 +56,7 @@ while options != 10
     p "La cantidad de personas ingresadas es #{arr.count}"
   when 5
     names_comunas = arr.map { |h| h[:comuna] }
-    puts "Las comunas que existen en el sistema son #{names_comunas.map(&:capitalize).uniq}"
+    puts "Las comunas en el sistema son #{names_comunas.map(&:capitalize).uniq}"
   when 6
     arr_of_age = arr.find_all { |h| h[:age] >= 20 && h[:age] <= 25 }
     names_of_age = arr_of_age.map { |h| h[:name] }
