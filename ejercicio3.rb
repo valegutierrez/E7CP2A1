@@ -58,12 +58,10 @@ while options != 10
     names_of_age = arr_of_age.map { |h| h[:name] }
     puts "Las personas que tienen entre 20 y 25 años son #{names_of_age}"
   when 7
-    sum_of_ages = 0
-    arr.map { |h| sum_of_ages += h[:age] }
+    sum_of_ages = arr.inject(0) { |sum, h| sum + h[:age] }
     p "La suma de las edades de los alumnos es #{sum_of_ages}"
   when 8
-    sum_of_ages = 0
-    arr.map { |h| sum_of_ages += h[:age] }
+    sum_of_ages = arr.inject(0) { |sum, h| sum + h[:age] }
     prom_of_ages = (sum_of_ages / arr.count)
     p "El promedio de las edades es #{prom_of_ages}"
   when 9
